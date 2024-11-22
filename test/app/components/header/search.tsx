@@ -1,7 +1,7 @@
 export default function Search() {
     return <div className="w-full md:w-auto">
         <form className="flex gap-4 justify-center flex-col">
-            <div className="flex items-stretch border rounded-md overflow-hidden p-2 rounded-3xl">
+            <div className="flex items-stretch border rounded-3xl overflow-hidden p-2 rounded-3xl">
                 <input
                     type="text"
                     placeholder="Entrez votre N° de bon cadeau"
