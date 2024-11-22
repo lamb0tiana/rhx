@@ -1,6 +1,6 @@
 #filter {
   button {
-    @apply rounded-2xl px-4 h-10 m-1;
+    @apply rounded-2xl px-4 h-10 m-auto w-fit m-auto;
     &.active {
       @apply bg-primary text-white;
     }

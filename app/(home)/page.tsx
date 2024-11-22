@@ -1,20 +1,29 @@
 "use client"
 import style from "./home.module.scss"
-import {CategoryFilter, list} from "@/app/data/filter";
+import {CategoryFilter} from "@/app/data/filter";
 import {useFilter} from "@/app/context/FilterContext";
 
 export default function Home() {
     const {filter, dispatch} = useFilter()
     return (
         <div className="container max-w-[1200px] mx-auto">
-            <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6  justify-center gap-2.5 my-5 font-bold`} id={style.filter}>
-                <button className={`${filter === undefined ? style.active : ''}`}
-                        onClick={() => dispatch({filter: undefined})}>Tous
+            <div
+                className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-fit m-auto gap-0 p-1 justify-center gap-2.5 my-5 font-bold items-center`}
+                id={style.filter}>
+                <button className={filter === undefined ? style.active : ''}
+                        onClick={() => dispatch({filter: undefined})}>
+                    Tous
                 </button>
-                {CategoryFilter.map(category => <button onClick={() => dispatch({filter: category})}
-                                                        className={filter === category ? style.active : ''}
-                                                        key={category}>{category}</button>)}
+                {CategoryFilter.map(category =>
+                    <button
+                        onClick={() => dispatch({filter: category})}
+                        className={filter === category ? style.active : ''}
+                        key={category}>
+                        {category}
+                    </button>
+                )}
             </div>
+
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 ">
                 <div className="bg-white shadow-md rounded-lg overflow-hidden">
