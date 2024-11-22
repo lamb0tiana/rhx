@@ -6,7 +6,7 @@ import Link from "next/link";
 import {useSitePlan} from "@/app/context/SitePlanContext";
 
 export default function Siteplan() {
-   const {isQuerying, sitePlan} = useSitePlan()
+    const {isQuerying, sitePlan} = useSitePlan()
 
     const getDynamicImage = (iconPath: string): string => {
         try {
@@ -28,7 +28,7 @@ export default function Siteplan() {
                         {sitePlan.map((candidate, index) => (
                             <div key={index} className="flex flex-col items-center m-12">
                                 <div
-                                    className="w-20 h-20 flex items-center justify-center rounded-full bg-primary text-white font-bold">
+                                    className={`w-20 h-20 flex items-center justify-center rounded-full bg-${candidate.is_active ? 'primary': 'white'} text-white font-bold`}>
                                     <Link href={candidate.url}>
                                         <Image
                                             src={getDynamicImage(
