@@ -1,6 +1,11 @@
+'use client'
 import present from "@/public/icons/present.svg";
 import Image from "next/image";
+import {useEffect} from "react";
 export default function Siteplan() {
+    useEffect(() => {
+        fetch("/api/siteplan").then(r => r.json()).then(r => console.log(r))
+    }, []);
     return (
         <div className="mt-3 w-full bg-[#FCF5E7] flex items-center">
             <section
