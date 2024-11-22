@@ -1,10 +1,11 @@
-type plan_site_item_type = {
+export type plan_site_item_type = {
     url: string | ((params: string) => string)
     icon: string
 };
 
 type plan_site_candidate_type = "home" | "info" | "checkout" | "print"
-const site_plan: Record<plan_site_candidate_type, plan_site_item_type> = {
+export type plan_site_type = Record<plan_site_candidate_type, plan_site_item_type>
+const site_plan: plan_site_type = {
     "home": {
         "url": "/",
         "icon": "present.svg"
