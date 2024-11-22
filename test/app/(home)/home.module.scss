@@ -1,0 +1,8 @@
+#filter {
+  button {
+    @apply rounded-2xl px-4 h-10 m-1;
+    &.active {
+      @apply bg-primary text-white;
+    }
+  }
+}

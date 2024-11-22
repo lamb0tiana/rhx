@@ -11,14 +11,14 @@ export default function Siteplan() {
     const getDynamicImage = (iconPath: string): string => {
         try {
             return require(`@/public/icons/${iconPath}.svg`).default;
-        } catch (e) {
+        } catch  {
             return "https://placehold.co/50";
         }
     };
 
     return (
         <div className="mt-3 w-full bg-[#FCF5E7] flex justify-center items-center">
-            <section className="flex items-center justify-center mx-auto max-w-[960px] p-6 w-full flex-wrap">
+            <section className="flex gap-12 items-center justify-center mx-auto max-w-[960px] w-full flex-wrap">
                 {isQuerying ? (
                     <div className="flex items-center justify-center mx-auto">
                         <Loader className="animate-spin text-primary w-10 h-10"/>
