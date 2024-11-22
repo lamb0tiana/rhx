@@ -14,7 +14,7 @@ const site_plan: plan_site_type = {
         "is_active": false
     },
     "info": {
-        "url":  `/info`,
+        "url":  `/info/123`,
         "icon": "info",
         "label": "Informations sur le bon",
         "is_active": false

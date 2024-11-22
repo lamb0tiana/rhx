@@ -6,6 +6,7 @@ import {plan_site_item_type} from "@/app/data/site_plan";
 import {Loader} from "lucide-react";
 import SitePlanQuery from "@/app/actions/siteplan";
 import {usePathname} from "next/navigation";
+import Link from "next/link";
 
 export default function Siteplan() {
     const [isQuerying, setIsQuerying] = useState<boolean>(false);
@@ -17,14 +18,21 @@ export default function Siteplan() {
         setIsQuerying(true);
         SitePlanQuery()
             .then((response) => {
-                const dict_plan = Object.values(response)
-                const belong_active_index: number = dict_plan.findIndex(s => s.url.includes(firstPath))
-                setSitePlan(dict_plan.map((value, key) => ({...value, is_active: key <= belong_active_index})));
+                matchActiveMenu(Object.values(response))
             })
             .finally(() => {
                 setIsQuerying(false);
             });
     }, []);
+
+    useEffect(() => {
+        matchActiveMenu(sitePlan)
+    }, [path]);
+
+    const matchActiveMenu = (menu_candidate: plan_site_item_type[]) => {
+        const belong_active_index: number = menu_candidate.findIndex(s => s.url.includes(firstPath))
+        setSitePlan(menu_candidate.map((value, key) => ({...value, is_active: key <= belong_active_index})));
+    }
 
 
     const getDynamicImage = (iconPath: string): string => {
@@ -36,9 +44,8 @@ export default function Siteplan() {
     };
 
     return (
-        <div className="mt-3 w-full bg-[#FCF5E7] flex items-center">
-            <section
-                className="flex items-center justify-between mx-auto max-w-[960px] p-6 w-full flex-col sm:flex-row">
+        <div className="mt-3 w-full bg-[#FCF5E7] flex justify-center items-center">
+            <section className="flex items-center justify-center mx-auto max-w-[960px] p-6 w-full flex-wrap">
                 {isQuerying ? (
                     <div className="flex items-center justify-center mx-auto">
                         <Loader className="animate-spin text-primary w-10 h-10"/>
@@ -46,27 +53,28 @@ export default function Siteplan() {
                 ) : (
                     <>
                         {sitePlan.map((candidate, index) => (
-                            <div key={index} className="flex items-center w-full">
-                                <div className="flex flex-col items-center mb-4 sm:mb-0">
-                                    <div
-                                        className="w-20 h-20 flex items-center justify-center rounded-full bg-primary text-white font-bold">
+                            <div key={index} className="flex flex-col items-center m-12">
+                                <div
+                                    className="w-20 h-20 flex items-center justify-center rounded-full bg-primary text-white font-bold">
+                                    <Link href={candidate.url}>
                                         <Image
-                                            src={getDynamicImage(candidate.icon)} // Utilisation de l'URL de placeholder si aucune image n'est fournie
+                                            src={getDynamicImage(
+                                                `${!candidate.is_active ? "disable_" : ""}${candidate.icon}`
+                                            )}
                                             alt={candidate.label}
                                             width={50}
                                             height={50}
                                         />
-                                    </div>
-                                    <span>{candidate.label}</span>
+                                    </Link>
                                 </div>
-                                {index < sitePlan.length - 1 && (
-                                    <div className="flex-1 border-t-2 border-dashed border-[#D9BBA2] mx-4 p-2"></div>
-                                )}
+                                <span className="mt-2">{candidate.label}</span>
                             </div>
                         ))}
                     </>
                 )}
             </section>
         </div>
+
+
     );
 }
