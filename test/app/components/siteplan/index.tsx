@@ -6,7 +6,7 @@ import Link from "next/link";
 import {useSitePlan} from "@/app/context/SitePlanContext";
 
 export default function Siteplan() {
-    const {isQuerying, sitePlan} = useSitePlan()
+    const {isQuerying, sitePlan} = useSitePlan();
 
     const getDynamicImage = (iconPath: string): string => {
         try {
@@ -26,10 +26,16 @@ export default function Siteplan() {
                 ) : (
                     <>
                         {sitePlan.map((candidate, index) => (
-                            <div key={index} className="flex flex-col items-center m-12">
-                                <div
-                                    className={`w-20 h-20 flex items-center justify-center rounded-full bg-${candidate.is_active ? 'primary': 'white'} text-white font-bold`}>
-                                    <Link href={candidate.url}>
+                            <div
+                                key={index}
+                                className="flex flex-col items-center m-8 w-32 h-32"
+                            >
+                                <Link href={candidate.url} className="flex flex-col items-center">
+                                    <div
+                                        className={`w-20 h-20 flex items-center justify-center rounded-full ${
+                                            candidate.is_active ? 'bg-primary text-white' : 'bg-white text-primary'
+                                        }`}
+                                    >
                                         <Image
                                             src={getDynamicImage(
                                                 `${!candidate.is_active ? "disable_" : ""}${candidate.icon}`
@@ -38,16 +44,20 @@ export default function Siteplan() {
                                             width={50}
                                             height={50}
                                         />
-                                    </Link>
-                                </div>
-                                <span className="mt-2">{candidate.label}</span>
+                                    </div>
+                                    <span
+                                        className={`mt-2 text-center font-semibold ${
+                                            candidate.is_active ? 'text-primary' : ''
+                                        }`}
+                                    >
+                                        {candidate.label}
+                                    </span>
+                                </Link>
                             </div>
                         ))}
                     </>
                 )}
             </section>
         </div>
-
-
     );
 }
