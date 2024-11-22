@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/app/components/header";
 import Siteplan from "@/app/components/siteplan";
+import SitePlanContextComponent from "@/app/context/SitePlanContext";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -31,7 +32,9 @@ export default function RootLayout({
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
         <Header/>
-        <Siteplan/>
+        <SitePlanContextComponent>
+            <Siteplan/>
+        </SitePlanContextComponent>
         {children}
         </body>
         </html>

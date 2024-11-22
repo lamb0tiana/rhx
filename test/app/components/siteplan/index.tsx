@@ -1,39 +1,12 @@
 'use client'
 
 import Image from "next/image";
-import {useEffect, useState} from "react";
-import {plan_site_item_type} from "@/app/data/site_plan";
 import {Loader} from "lucide-react";
-import SitePlanQuery from "@/app/actions/siteplan";
-import {usePathname} from "next/navigation";
 import Link from "next/link";
+import {useSitePlan} from "@/app/context/SitePlanContext";
 
 export default function Siteplan() {
-    const [isQuerying, setIsQuerying] = useState<boolean>(false);
-    const [sitePlan, setSitePlan] = useState<plan_site_item_type[]>([]);
-    const path: string = usePathname() || "/";
-    const [, firstPath] = path.split('/');
-
-    useEffect(() => {
-        setIsQuerying(true);
-        SitePlanQuery()
-            .then((response) => {
-                matchActiveMenu(Object.values(response))
-            })
-            .finally(() => {
-                setIsQuerying(false);
-            });
-    }, []);
-
-    useEffect(() => {
-        matchActiveMenu(sitePlan)
-    }, [path]);
-
-    const matchActiveMenu = (menu_candidate: plan_site_item_type[]) => {
-        const belong_active_index: number = menu_candidate.findIndex(s => s.url.includes(firstPath))
-        setSitePlan(menu_candidate.map((value, key) => ({...value, is_active: key <= belong_active_index})));
-    }
-
+   const {isQuerying, sitePlan} = useSitePlan()
 
     const getDynamicImage = (iconPath: string): string => {
         try {
