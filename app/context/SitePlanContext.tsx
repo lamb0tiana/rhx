@@ -21,8 +21,8 @@ const SitePlanContextComponent: React.FC<{
     children: React.ReactElement
 }> = ({children}) => {
     const [{sitePlan, isQuerying}, dispatch] = useReducer(
-        (prev: ContextData, action: Partial<ContextData>) => ({
-            ...prev,
+        (prevState: ContextData, action: Partial<ContextData>) => ({
+            ...prevState,
             ...action,
         }),
         defaultValue

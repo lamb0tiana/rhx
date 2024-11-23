@@ -1,6 +1,6 @@
 "use client"
 import style from "./home.module.scss"
-import {CategoryFilter, giftType, list} from "@/app/data/filter";
+import {CategoryFilter, ProductType} from "@/app/data/products";
 import {useFilter} from "@/app/context/FilterContext";
 import Image from "next/image";
 import present from "@/public/icons/present2.svg";
@@ -9,13 +9,13 @@ import {faker} from "@faker-js/faker/locale/fr";
 import {Loader} from "lucide-react";
 
 export default function Home() {
-    const {filter, dispatch} = useFilter();
+    const {filter, dispatch, products} = useFilter();
 
-    const [candidates, setCandidates] = useState<giftType[]>([]);
+    const [candidates, setCandidates] = useState<ProductType[]>([]);
 
     useEffect(() => {
-        setCandidates(list.filter(i => filter === undefined ? i : i.title === filter))
-    }, [filter])
+        setCandidates(products.filter(i => filter === undefined ? i : i.title === filter))
+    }, [filter, products])
 
 
     return (

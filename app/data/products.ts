@@ -15,14 +15,16 @@ export const CategoryFilter: CategoryFilterType[] = [
 ]
 
 
-export type giftType = {
+export type ProductType = {
+    id: number
     title: string
     shortDescription: string
     price: number
     imgUrl: string
 }
 
-export const list: giftType[] = Array.from({length: 6}, (_, i) => ({
+export const products: ProductType[] = Array.from({length: 6}, (_, i) => ({
+    id: i,
     title: getRandomCategory(),
     price: +faker.commerce.price({min: 100, max: 200}),
     shortDescription: faker.food.description(),
