@@ -93,7 +93,7 @@ export default function Content({id}: { id: number }) {
                             <button className="text-primary font-bold" onClick={() => setCount(count + 1)}>+</button>
                         </div>
                         <div className="text-right flex flex-col justify-center">
-                            <span className="text-md text-primary font-semibold">Total: {total}€</span>
+                            <span className="text-md text-primary font-semibold">Total: {total.toFixed(2)}€</span>
                             <p className="mt-2 p-2 bg-[#FCF5E7]  text-sm rounded-md text-center">
                                 Pour {product.person} personne{product.person > 1 ? "s" : ""}
                             </p>
