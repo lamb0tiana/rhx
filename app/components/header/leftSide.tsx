@@ -4,7 +4,7 @@ import {UtensilsCrossedIcon} from "lucide-react";
 
 export default function LeftSide() {
 
-    return <div className="flex items-center text-primary gap-4">
+    return <div className="flex items-center justify-center text-primary gap-4">
         <Image src={handGift} alt={"gift"} width={75}/>
         <div className="flex flex-col items-center text-center">
             <UtensilsCrossedIcon size={50}/>

@@ -12,15 +12,17 @@ export default function Footer() {
     return <footer className="my-8 py-8 w-full mx-auto">
         <div className="container mx-auto border-primary border-t border-b max-w-[1024px] py-2">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <LeftSide/>
+                <div className="flex flex-col  items-center">
+                    <LeftSide/>
+                </div>
 
-                <div className="flex flex-col items-center justify-center space-y-2">
-                    <p className="text-sm mt-2 text-center">Paiement sécurisé</p>
-                    <div className="flex items-center justify-center gap-6 ">
-                        <Image src={visa} alt="Visa" width={75} height={50}/>
-                        <Image src={mc} alt="Mastercard" width={75} height={50}/>
-                        <Image src={cb} alt="CB" width={75} height={50}/>
-                        <Image src={stripe} alt="Stripe" width={75} height={50}/>
+                <div className="flex flex-col md:flex-row items-center justify-center space-x-6 md:space-x-8 h-1/2 md:h-auto">
+                    <p className="text-sm mt-2 text-center md:text-left">Paiement sécurisé</p>
+                    <div className="flex items-center justify-center gap-4">
+                        <Image src={visa} alt="Visa" width={50} height={50}/>
+                        <Image src={mc} alt="Mastercard" width={50} height={50}/>
+                        <Image src={cb} alt="CB" width={50} height={50}/>
+                        <Image src={stripe} alt="Stripe" width={50} height={50}/>
                     </div>
                 </div>
 
@@ -49,5 +51,6 @@ export default function Footer() {
             </div>
         </div>
     </footer>
+
 
 }
