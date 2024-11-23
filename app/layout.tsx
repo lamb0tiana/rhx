@@ -6,6 +6,7 @@ import Siteplan from "@/app/components/siteplan";
 import SitePlanContextComponent from "@/app/context/SitePlanContext";
 import ProductContextComponent from "@/app/context/FilterContext";
 import Footer from "@/app/components/footer";
+import CardContextComponent from "@/app/context/CartContext";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -35,12 +36,13 @@ export default function RootLayout({
         >
         <Header/>
         <ProductContextComponent>
-            <>
-                <SitePlanContextComponent>
-                    <Siteplan/>
-                </SitePlanContextComponent>
-                {children}
-            </>
+            <CardContextComponent>
+                <>
+                    <SitePlanContextComponent>
+                        <Siteplan/>
+                    </SitePlanContextComponent>
+                    {children}</>
+            </CardContextComponent>
         </ProductContextComponent>
         <Footer/>
 
