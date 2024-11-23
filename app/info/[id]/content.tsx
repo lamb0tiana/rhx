@@ -12,7 +12,7 @@ export default function Content({id}: { id: number }) {
     if (!selection)
         return <div className="text-center">No product</div>
 
-    return <div className="flex flex-col items-stretch gap-4 md:flex-row md:gap-8">
+    return <div className="flex flex-col items-stretch gap-4 md:flex-row md:gap-8 border-b border-primary pb-8 ">
         <div className="w-full md:w-1/2 flex justify-center items-center bg-gray-50">
             <Image
                 layout="responsive"
@@ -20,7 +20,7 @@ export default function Content({id}: { id: number }) {
                 alt="Image du produit"
                 width={500}
                 height={400}
-                className="object-contain max-w-[90%] md:max-w-full"
+                className="object-contain max-w-[90%] md:max-w-full rounded-xl"
             />
         </div>
         <div className="w-full md:w-1/2 flex flex-col justify-between px-4 sm:px-6 lg:px-8 py-4">

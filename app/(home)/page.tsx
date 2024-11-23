@@ -29,7 +29,7 @@ export default function Home() {
                 <span className="mt-2">Chargement des bons de commande</span>
             </div>
             :
-            <div className="container max-w-[1200px] mx-auto px-5">
+            <div className="container max-w-[1200px] mx-auto p-5">
                 <div
                     className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-fit m-auto gap-0 p-1 justify-center gap-2.5 my-5 font-bold items-center`}
                     id={style.filter}
