@@ -5,7 +5,6 @@ import {useFilter} from "@/app/context/FilterContext";
 import Image from "next/image";
 import present from "@/public/icons/present2.svg";
 import {useState, useEffect} from "react";
-import {faker} from "@faker-js/faker/locale/fr";
 import {Loader} from "lucide-react";
 import {useRouter} from "next/navigation";
 
@@ -67,10 +66,7 @@ export default function Home() {
                                 </p>
                             </div>
                             <div className="px-4 flex justify-between items-center">
-                            <span className="text-sm text-gray-500">Pour {faker.number.int({
-                                min: 1,
-                                max: 4
-                            })} personnes</span>
+                            <span className="text-sm text-gray-500">Pour {product.person} personnes</span>
                                 <button
                                     onClick={handleSelection.bind(null, product)}
                                     className="text-primary hover:bg-primary hover:text-white border border-primary border-1 w-1/3 font-bold text-sm px-4 py-2 rounded-lg hover:bg-primary-dark"

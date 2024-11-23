@@ -4,7 +4,7 @@ import SocialNetworks from "./socialNetworks";
 import SecurePayment from "@/app/components/footer/securedPayment";
 
 export default function Footer() {
-    return <footer className="my-8 py-8 w-full mx-auto">
+    return <footer className="my-8 py-8 w-full mx-auto ">
         <div className="container mx-auto border-primary border-t border-b max-w-[1024px] py-2">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex flex-col  items-center">
