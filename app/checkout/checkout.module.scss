@@ -1,0 +1,16 @@
+.row{
+  input:not([type="radio"]){
+    @apply mt-1 block w-full border border-gray-300 rounded-lg focus:outline-none text-center focus:border-primary;
+  }
+  label{
+    @apply block text-sm font-medium text-gray-700;
+  }
+  div:first-child{
+    > div{
+        @apply w-8 h-8 flex items-center justify-center bg-primary text-white font-bold rounded-full;
+      & + h2 {
+        @apply text-orange-900 font-bold;
+      }
+    }
+  }
+}
