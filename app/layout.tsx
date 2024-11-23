@@ -34,11 +34,13 @@ export default function RootLayout({
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
         <Header/>
-        <SitePlanContextComponent>
-            <Siteplan/>
-        </SitePlanContextComponent>
         <ProductContextComponent>
-            <>{children}</>
+            <>
+                <SitePlanContextComponent>
+                    <Siteplan/>
+                </SitePlanContextComponent>
+                {children}
+            </>
         </ProductContextComponent>
         <Footer/>
 

@@ -7,7 +7,7 @@ import {ProductType} from "@/app/data/products";
 
 export default function Content({id}: { id: number }) {
 
-    const {products} = useProduct()
+    const {products, dispatch} = useProduct()
     const [price, setPrice] = useState<number>(0)
     const [count, setCount] = useState<number>(1)
     const [total, setTotal] = useState<number>(0)
@@ -20,8 +20,10 @@ export default function Content({id}: { id: number }) {
     useEffect(() => {
         if (product) {
             setPrice(product.price)
+            dispatch({selectedProduct: product})
         }
     }, [product]);
+
     useEffect(() => {
         setTotal(price * count)
     }, [price, count]);

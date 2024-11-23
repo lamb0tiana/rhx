@@ -2,11 +2,15 @@
 
 import Image from "next/image";
 import {Loader} from "lucide-react";
-import Link from "next/link";
 import {useSitePlan} from "@/app/context/SitePlanContext";
+import {plan_site_item_type} from "@/app/data/site_plan";
+import {useProduct} from "@/app/context/FilterContext";
+import {useRouter} from "next/navigation";
 
 export default function Siteplan() {
     const {isQuerying, sitePlan} = useSitePlan();
+    const {selectedProduct} = useProduct()
+    const router = useRouter()
 
     const getDynamicImage = (iconPath: string): string => {
         try {
@@ -15,7 +19,11 @@ export default function Siteplan() {
             return "https://placehold.co/50";
         }
     };
-
+    const goTo = ({url}: plan_site_item_type) => {
+        if(url === "/" || selectedProduct ) {
+            router.push(url === "/info" ? `${url}/${selectedProduct?.id}` : url)
+        }
+    }
     return (
        isQuerying ? <div className="flex flex-col justify-end items-center mx-auto">
                <Loader className="animate-spin text-primary w-10 h-10"/>
@@ -29,7 +37,7 @@ export default function Siteplan() {
                             key={index}
                             className="flex items-start m-auto  m-8 w-32 h-32"
                         >
-                            <Link href={candidate.url} className="flex flex-col items-center">
+                            <span onClick={goTo.bind(null, candidate)} className="flex flex-col items-center hover:cursor-pointer">
                                 <div
                                     className={`w-20 h-20 flex items-center justify-center rounded-full ${
                                         candidate.is_active ? 'bg-primary text-white' : 'bg-white text-primary'
@@ -46,12 +54,12 @@ export default function Siteplan() {
 
                                 </div>
                                 <span
-                                    className={`mt-2 text-center text-sm font-semibold ${candidate.is_active ? 'text-primary' : ''}`}
+                                    className={`mt-2 text-center text-sm font-semibold ${candidate.is_active ? 'text-primary' : 'text-gray-600'}`}
                                 >
                                         {candidate.label}
                                     </span>
 
-                            </Link>
+                            </span>
                             {candidate.is_active && (
                                 <span
                                     className="left-[-32px] relative  bg-green-500 text-white rounded-full flex items-center justify-center w-7"> ✔ </span>

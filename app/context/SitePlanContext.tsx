@@ -3,6 +3,7 @@ import {createContext, Dispatch, useContext, useEffect, useReducer} from 'react'
 import {plan_site_item_type} from "@/app/data/site_plan";
 import {usePathname} from "next/navigation";
 import SitePlanQuery from "@/app/actions/siteplan";
+import {useProduct} from "@/app/context/FilterContext";
 
 type ContextData = {
     sitePlan: plan_site_item_type[]
@@ -20,6 +21,7 @@ const SitePlanContext = createContext<SitePlanType>(defaultValue)
 const SitePlanContextComponent: React.FC<{
     children: React.ReactElement
 }> = ({children}) => {
+    const {dispatch: dispatchProduct} = useProduct()
     const [{sitePlan, isQuerying}, dispatch] = useReducer(
         (prevState: ContextData, action: Partial<ContextData>) => ({
             ...prevState,
@@ -37,6 +39,9 @@ const SitePlanContextComponent: React.FC<{
 
     useEffect(() => {
         matchActiveMenu(sitePlan)
+        if(path === "/") {
+            dispatchProduct({filter: undefined, selectedProduct: undefined})
+        }
     }, [path]);
 
     useEffect(() => {
