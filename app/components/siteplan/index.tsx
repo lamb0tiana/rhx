@@ -37,7 +37,7 @@ export default function Siteplan() {
                             key={index}
                             className="flex items-start m-auto  m-8 w-32 h-32"
                         >
-                            <span onClick={goTo.bind(null, candidate)} className="flex flex-col items-center hover:cursor-pointer">
+                            <span onClick={index <2 ? goTo.bind(null, candidate): undefined} className="flex flex-col items-center hover:cursor-pointer">
                                 <div
                                     className={`w-20 h-20 flex items-center justify-center rounded-full ${
                                         candidate.is_active ? 'bg-primary text-white' : 'bg-white text-primary'

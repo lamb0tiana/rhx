@@ -1,13 +1,17 @@
 "use client"
 import {useProduct} from "@/app/context/FilterContext";
 import Image from "next/image";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import present2 from "@/public/icons/present2.svg";
 import {ProductType} from "@/app/data/products";
+import {useCard} from "@/app/context/CartContext";
+import {useRouter} from "next/navigation";
 
 export default function Content({id}: { id: number }) {
 
-    const {products, dispatch} = useProduct()
+    const {products} = useProduct()
+    const { dispatch} = useCard()
+    const router = useRouter()
     const [price, setPrice] = useState<number>(0)
     const [count, setCount] = useState<number>(1)
     const [total, setTotal] = useState<number>(0)
@@ -29,6 +33,11 @@ export default function Content({id}: { id: number }) {
     }, [price, count]);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPrice(+event.target.value)
+    }
+
+    const validateCommand = () => {
+        dispatch({quantity: count, unitPricing: price, selectedProduct: product})
+        router.push("/checkout")
     }
 
     if (!product)
@@ -102,7 +111,7 @@ export default function Content({id}: { id: number }) {
                         </div>
                     </div>
                 </div>
-                <button
+                <button onClick={validateCommand}
                     className="w-full sm:w-fit mt-6 bg-primary font-bold text-white py-2 px-6 rounded-md hover:bg-blue-600">
                     Commander
                 </button>

@@ -4,7 +4,7 @@ import {ProductType} from "@/app/data/products";
 
 type ContextData = {
     selectedProduct: ProductType | null
-    price: number
+    unitPricing: number
     quantity: number
 }
 type CardContextDataType = ContextData & {
@@ -12,7 +12,7 @@ type CardContextDataType = ContextData & {
 }
 const defaultValue: CardContextDataType = {
     quantity: 0,
-    price: 0,
+    unitPricing: 0,
     selectedProduct: null,
     dispatch: () => undefined,
 }
@@ -20,7 +20,7 @@ const CardContext = createContext<CardContextDataType>(defaultValue)
 const CardContextComponent: React.FC<{
     children: React.ReactElement
 }> = ({children}) => {
-    const [{price, quantity, selectedProduct}, dispatch] = useReducer(
+    const [{unitPricing, quantity, selectedProduct}, dispatch] = useReducer(
         (prevState: ContextData, action: Partial<ContextData>) => ({
             ...prevState,
             ...action,
@@ -31,7 +31,7 @@ const CardContextComponent: React.FC<{
 
     return (
         <CardContext.Provider
-            value={{price, selectedProduct, quantity, dispatch}}
+            value={{unitPricing, selectedProduct, quantity, dispatch}}
         >
             {children}
         </CardContext.Provider>
