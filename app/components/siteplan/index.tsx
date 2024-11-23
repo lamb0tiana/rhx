@@ -4,7 +4,6 @@ import Image from "next/image";
 import {Loader} from "lucide-react";
 import Link from "next/link";
 import {useSitePlan} from "@/app/context/SitePlanContext";
-import {is} from "immutable";
 
 export default function Siteplan() {
     const {isQuerying, sitePlan} = useSitePlan();
