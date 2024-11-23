@@ -7,17 +7,17 @@ type ContextData = {
     selectedProduct: ProductType | undefined
     products: ProductType[]
 }
-type FilterContextDataType = ContextData & {
+type ProductContextDataType = ContextData & {
     dispatch: Dispatch<Partial<ContextData>>
 }
-const defaultValue: FilterContextDataType = {
+const defaultValue: ProductContextDataType = {
     filter: undefined,
     products: [],
     selectedProduct: undefined,
     dispatch: () => undefined,
 }
-const FilterContext = createContext<FilterContextDataType>(defaultValue)
-const FilterContextComponent: React.FC<{
+const ProductContext = createContext<ProductContextDataType>(defaultValue)
+const ProductContextComponent: React.FC<{
     children: React.ReactElement
 }> = ({children}) => {
     const [{filter, selectedProduct}, dispatch] = useReducer(
@@ -36,14 +36,14 @@ const FilterContextComponent: React.FC<{
 
 
     return (
-        <FilterContext.Provider
+        <ProductContext.Provider
             value={{filter, selectedProduct, products, dispatch}}
         >
             {children}
-        </FilterContext.Provider>
+        </ProductContext.Provider>
     )
 }
-const useFilter = (): FilterContextDataType =>
-    useContext(FilterContext)
-export {useFilter}
-export default FilterContextComponent
+const useProduct = (): ProductContextDataType =>
+    useContext(ProductContext)
+export {useProduct}
+export default ProductContextComponent

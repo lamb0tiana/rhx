@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/app/components/header";
 import Siteplan from "@/app/components/siteplan";
 import SitePlanContextComponent from "@/app/context/SitePlanContext";
-import FilterContextComponent from "@/app/context/FilterContext";
+import ProductContextComponent from "@/app/context/FilterContext";
 import Footer from "@/app/components/footer";
 
 const geistSans = localFont({
@@ -37,9 +37,9 @@ export default function RootLayout({
         <SitePlanContextComponent>
             <Siteplan/>
         </SitePlanContextComponent>
-        <FilterContextComponent>
+        <ProductContextComponent>
             <>{children}</>
-        </FilterContextComponent>
+        </ProductContextComponent>
         <Footer/>
 
         </body>

@@ -1,7 +1,7 @@
 "use client"
 import style from "./home.module.scss"
 import {CategoryFilter, ProductType} from "@/app/data/products";
-import {useFilter} from "@/app/context/FilterContext";
+import {useProduct} from "@/app/context/FilterContext";
 import Image from "next/image";
 import present from "@/public/icons/present2.svg";
 import {useState, useEffect} from "react";
@@ -10,7 +10,7 @@ import {useRouter} from "next/navigation";
 
 export default function Home() {
     const router = useRouter()
-    const {filter, dispatch, products} = useFilter();
+    const {filter, dispatch, products} = useProduct();
 
     const [productCandidates, setProductCandidates] = useState<ProductType[]>([]);
 
