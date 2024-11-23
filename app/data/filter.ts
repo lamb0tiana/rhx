@@ -1,8 +1,9 @@
 import {faker} from "@faker-js/faker/locale/fr";
 
-export type CategoryFilterType = "Formules repas" | "Repas & hébergement" | "Repas & cadeau"
-const getRandomCategory = (): CategoryFilterType => {
+export type CategoryFilterType = "Tous" | "Formules repas" | "Repas & hébergement" | "Repas & cadeau"
+export const getRandomCategory = (): CategoryFilterType => {
     const categories: CategoryFilterType[] = [
+        "Tous",
         "Formules repas",
         "Repas & hébergement",
         "Repas & cadeau",
@@ -11,18 +12,20 @@ const getRandomCategory = (): CategoryFilterType => {
     return categories[randomIndex];
 };
 export const CategoryFilter: CategoryFilterType[] = [
-    "Formules repas", "Repas & hébergement", "Repas & cadeau"
+   "Tous",  "Formules repas", "Repas & hébergement", "Repas & cadeau"
 ]
 
 
-type giftType = {
+export type giftType = {
     title: string
     shortDescription: string
     price: number
+    imgUrl: string
 }
-export const list: giftType[] = Array.from({length: 10}, (_, i) => ({
-    title: CategoryFilter[Math.floor(Math.random() * CategoryFilter.length)],
-    price: faker.commerce.price({min: 100, max: 200}),
-    shortDescription: faker.food.description(),
 
-}));
+export const list: giftType[] = Array.from({length: 6}, (_, i) => ({
+    title: getRandomCategory(),
+    price: +faker.commerce.price({min: 100, max: 200}),
+    shortDescription: faker.food.description(),
+    imgUrl: `/images/${i + 1}.png`,
+}))

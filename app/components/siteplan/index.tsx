@@ -19,9 +19,9 @@ export default function Siteplan() {
     return (
         <div className="mt-3 w-full bg-[#FCF5E7] flex justify-center items-center">
             <section
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 p-6 mx-auto max-w-[960px] w-full flex-wrap">
+                className="grid grid-cols-2 sm:grid-cols-4 gap-12 p-6 mx-auto max-w-[960px] w-full flex-wrap">
                 {isQuerying ? (
-                    <div className=" mx-auto">
+                    <div className="mx-auto">
                         <Loader className="animate-spin text-primary w-10 h-10"/>
                     </div>
                 ) : (
@@ -31,7 +31,6 @@ export default function Siteplan() {
                                 key={index}
                                 className="flex items-start m-auto  m-8 w-32 h-32"
                             >
-
                                 <Link href={candidate.url} className="flex flex-col items-center">
                                     <div
                                         className={`w-20 h-20 flex items-center justify-center rounded-full ${
