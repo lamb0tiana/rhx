@@ -31,7 +31,7 @@ export const products: ProductType[] = Array.from({length: 6}, (_, i) => ({
     price: +faker.commerce.price({min: 100, max: 200}),
     shortDescription: faker.food.description(),
     description: faker.lorem.lines({
-        min:1, max: 3
+        min:3, max: 10
     }),
     imgUrl: `/images/${i + 1}.png`,
     person: faker.number.int({
