@@ -3,7 +3,6 @@ import {faker} from "@faker-js/faker/locale/fr";
 export type CategoryFilterType = "Tous" | "Formules repas" | "Repas & hébergement" | "Repas & cadeau"
 export const getRandomCategory = (): CategoryFilterType => {
     const categories: CategoryFilterType[] = [
-        "Tous",
         "Formules repas",
         "Repas & hébergement",
         "Repas & cadeau",

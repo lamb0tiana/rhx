@@ -12,7 +12,9 @@ export default function Home() {
 
     const [candidates, setCandidates] = useState<giftType[]>([]);
 
-    useEffect(() => setCandidates(list), []);
+    useEffect(() => {
+            setCandidates(list.filter(i => filter === undefined ? i: i.title === filter))
+    }, [filter])
 
 
     return (
