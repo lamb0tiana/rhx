@@ -3,7 +3,7 @@ import {createContext, Dispatch, useContext, useEffect, useReducer} from 'react'
 import {plan_site_item_type} from "@/app/_/data/site_plan";
 import {usePathname} from "next/navigation";
 import SitePlanQuery from "@/app/_/actions/siteplan";
-import {useProduct} from "@/app/_/context/FilterContext";
+import {useProduct} from "@/app/_/context/ProductContext";
 
 type ContextData = {
     sitePlan: plan_site_item_type[]

@@ -7,8 +7,12 @@ import {useForm, FormProvider} from "react-hook-form";
 import {CheckoutFormType, formSchema} from "@/app/_/schemas/checkoutSchemas";
 import {zodResolver} from "@hookform/resolvers/zod";
 import React, {useEffect} from "react";
+import {useProduct} from "@/app/_/context/ProductContext";
+import {useRouter} from "next/navigation";
 
 export default function Checkout() {
+    const {selectedProduct} = useProduct()
+    const router = useRouter()
     const methods = useForm<CheckoutFormType>({
         resolver: zodResolver(formSchema),
     })
@@ -16,11 +20,18 @@ export default function Checkout() {
         handleSubmit,
         formState: {errors},
     } = methods;
+
+
     const onsubmit = (data: CheckoutFormType) => {
         console.log(data)
 
     }
 
+    useEffect(() => {
+        if(!selectedProduct) {
+            router.push('/')
+        }
+    }, []);
     return (
         <div className="max-w-[1200px] mx-auto p-6 ">
             <FormProvider {...methods}>

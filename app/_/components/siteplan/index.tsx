@@ -4,7 +4,7 @@ import Image from "next/image";
 import {Loader} from "lucide-react";
 import {useSitePlan} from "@/app/_/context/SitePlanContext";
 import {plan_site_item_type} from "@/app/_/data/site_plan";
-import {useProduct} from "@/app/_/context/FilterContext";
+import {useProduct} from "@/app/_/context/ProductContext";
 import {useRouter} from "next/navigation";
 
 export default function Siteplan() {

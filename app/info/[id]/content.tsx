@@ -1,5 +1,5 @@
 "use client"
-import {useProduct} from "@/app/_/context/FilterContext";
+import {useProduct} from "@/app/_/context/ProductContext";
 import Image from "next/image";
 import React, {useEffect, useState} from "react";
 import present2 from "@/public/icons/present2.svg";

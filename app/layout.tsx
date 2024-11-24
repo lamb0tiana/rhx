@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/app/_/components/header";
 import Siteplan from "@/app/_/components/siteplan";
 import SitePlanContextComponent from "@/app/_/context/SitePlanContext";
-import ProductContextComponent from "@/app/_/context/FilterContext";
+import ProductContextComponent from "@/app/_/context/ProductContext";
 import Footer from "@/app/_/components/footer";
 import CardContextComponent from "@/app/_/context/CartContext";
 
