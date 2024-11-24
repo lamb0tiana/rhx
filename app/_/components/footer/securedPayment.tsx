@@ -8,7 +8,7 @@ export default function SecurePayment(){
     return <>
         <p className="text-sm mt-2 text-center md:text-left whitespace-normal lg:whitespace-nowrap">Paiement sécurisé</p>
 
-        <div className="flex items-center justify-center gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 items-center justify-center gap-4">
             <Image src={visa} alt="Visa" width={50} height={50}/>
             <Image src={mc} alt="Mastercard" width={50} height={50}/>
             <Image src={cb} alt="CB" width={50} height={50}/>

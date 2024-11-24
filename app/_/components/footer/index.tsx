@@ -15,7 +15,7 @@ export default function Footer() {
                     className="flex flex-col md:flex-row items-center justify-center space-x-6 md:space-x-8 h-1/2 md:h-auto">
                     <SecurePayment/>
                 </div>
-                <div className="flex items-center justify-center gap-6">
+                <div className="flex items-center justify-center gap-6  md:border-l border-primary">
                     <SocialNetworks/>
                 </div>
             </div>
