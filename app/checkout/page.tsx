@@ -20,9 +20,7 @@ export default function Checkout() {
         console.log(data)
 
     }
-    useEffect(() => {
-        console.log(errors)
-    }, [errors]);
+
     return (
         <div className="max-w-[1200px] mx-auto p-6 ">
             <FormProvider {...methods}>
@@ -33,7 +31,7 @@ export default function Checkout() {
                     <BuyerSection errors={errors.fromSchema || {}}/>
                     <Receiver errors={errors.toSchema || {}}/>
                     <CommandModelSection errors={errors.commandModelSchema || {}}/>
-                    <CgvSection/>
+                    <CgvSection errors={errors.cgSchema || {}}/>
                     <input type="submit" value="Valider et payer"
                            className="bg-primary text-white text-sm m-auto flex font-bold py-2 px-4 rounded-md"/>
                 </form>

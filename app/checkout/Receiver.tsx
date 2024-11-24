@@ -5,7 +5,7 @@ import React from "react";
 type ReceiverSectionProps = {
     errors: FieldErrors<CheckoutFormType['toSchema']>
 }
-const Receiver : React.FC< ReceiverSectionProps>= ({errors}) => {
+const Receiver : React.FC<ReceiverSectionProps>= ({errors}) => {
     const { register } = useFormContext<CheckoutFormType>();
     return <section className={checkoutStyle.row}>
         <div className="flex items-center space-x-3 mb-6">

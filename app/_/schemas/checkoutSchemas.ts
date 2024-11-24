@@ -14,7 +14,6 @@ export const fromSchema = z.object({
 });
 
 
-
 export const toSchema = z.object({
     receiver: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
     from: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
@@ -25,8 +24,22 @@ export const commandModelSchema = z.object({
         message: "Choisir un modèle"
     }),
 })
-export const formSchema = z.object({
-    fromSchema, toSchema, commandModelSchema
+
+export const cgSchema = z.object({
+    cgv: z
+        .boolean()
+        .refine((val) => val === true, {
+            message: "error cgv",
+        }),
+    cgu: z
+        .boolean()
+        .refine((val) => val === true, {
+            message: "error cgu",
+        }),
 });
+export const formSchema = z.object({
+    fromSchema, toSchema, commandModelSchema, cgSchema
+});
+
 
 export type CheckoutFormType = z.infer<typeof formSchema>;
