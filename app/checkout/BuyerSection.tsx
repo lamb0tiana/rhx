@@ -15,24 +15,24 @@ const BuyerSection: React.FC<BuyerSectionProps> = ({errors}) => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-                <label htmlFor="email">Email</label>
-                {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+                <label htmlFor="email">Email (*)</label>
                 <input type="email" id="email" {...register("fromSchema.email")} placeholder={"email@example.fr"}/>
+                {errors.email && <p className={checkoutStyle.hasError}>{errors.email.message}</p>}
             </div>
             <div>
                 <label htmlFor="adresse">Adresse</label>
-                {errors.address && <p className="text-red-500">{errors.address.message}</p>}
                 <input type="text" id="adresse" {...register("fromSchema.address")} placeholder={"Entrer votre adresse"}/>
+                {errors.address && <p className={checkoutStyle.hasError}>{errors.address.message}</p>}
             </div>
             <div>
                 <label htmlFor="cp">Code postal</label>
-                {errors.cp && <p className="text-red-500">{errors.cp.message}</p>}
                 <input type="text" id="cp" {...register("fromSchema.cp")} placeholder="Entrer votre code postal"/>
+                {errors.cp && <p className={checkoutStyle.hasError}>{errors.cp.message}</p>}
             </div>
             <div>
                 <label htmlFor="ville">Ville</label>
-                {errors.city && <p className="text-red-500">{errors.city.message}</p>}
                 <input type="text" id="ville" {...register("fromSchema.city")} placeholder="Entrer votre ville"/>
+                {errors.city && <p className={checkoutStyle.hasError}>{errors.city.message}</p>}
             </div>
         </div>
     </section>

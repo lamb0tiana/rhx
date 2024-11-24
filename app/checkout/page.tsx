@@ -1,7 +1,7 @@
 "use client"
 import BuyerSection from "@/app/checkout/BuyerSection";
 import CommandModelSection from "@/app/checkout/CommandModelSection";
-import GiftSection from "@/app/checkout/GiftSection";
+import Receiver from "@/app/checkout/Receiver";
 import CgvSection from "@/app/checkout/CgvSection";
 import {useForm, FormProvider} from "react-hook-form";
 import {CheckoutFormType, formSchema} from "@/app/_/schemas/checkoutSchemas";
@@ -11,7 +11,6 @@ import React, {useEffect} from "react";
 export default function Checkout() {
     const methods = useForm<CheckoutFormType>({
         resolver: zodResolver(formSchema),
-        mode: "onChange"
     })
     const {
         handleSubmit,
@@ -32,7 +31,7 @@ export default function Checkout() {
                     handleSubmit(onsubmit)(e)
                 }}>
                     <BuyerSection errors={errors.fromSchema || {}}/>
-                    <GiftSection/>
+                    <Receiver errors={errors.toSchema || {}}/>
                     <CommandModelSection/>
                     <CgvSection/>
                     <input type="submit" value="Valider et payer"
