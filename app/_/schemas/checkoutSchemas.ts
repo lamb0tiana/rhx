@@ -20,8 +20,13 @@ export const toSchema = z.object({
     from: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
 });
 
+export const commandModelSchema = z.object({
+    model: z.string({
+        message: "Choisir un modèle"
+    }),
+})
 export const formSchema = z.object({
-    fromSchema, toSchema
+    fromSchema, toSchema, commandModelSchema
 });
 
 export type CheckoutFormType = z.infer<typeof formSchema>;

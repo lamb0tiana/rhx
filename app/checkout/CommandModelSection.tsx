@@ -1,11 +1,16 @@
 import checkoutStyle from "./checkout.module.scss"
-
-export default function CommandModelSection() {
-
+import {FieldErrors, useFormContext} from "react-hook-form";
+import {CheckoutFormType} from "@/app/_/schemas/checkoutSchemas";
+import React from "react";
+type ModelSectionProps = {
+    errors: FieldErrors<CheckoutFormType['commandModelSchema']>
+}
+const CommandModelSection: React.FC<ModelSectionProps> = ({errors}) => {
+const { register } = useFormContext<CheckoutFormType>();
     return <section className={checkoutStyle.row}>
         <div className="flex items-center space-x-3 mb-6">
             <div>3</div>
-            <h2>Choisir un modèle</h2>
+            <h2>Choisir un modèle</h2>{errors.model && <p className={checkoutStyle.hasError}>{errors.model.message}</p>}
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
             <div>
@@ -15,11 +20,7 @@ export default function CommandModelSection() {
                         alt="Option 1"
                         className="w-full h-auto rounded-md mb-4"
                     />
-                    <input
-                        type="radio"
-                        name="option"
-                        value="option1"
-                    />
+                    <input type="radio" {...register("commandModelSchema.model")} />
                 </label>
             </div>
             <div>
@@ -29,11 +30,7 @@ export default function CommandModelSection() {
                         alt="Option 2"
                         className="w-full h-auto rounded-md mb-4"
                     />
-                    <input
-                        type="radio"
-                        name="option"
-                        value="option2"
-                    />
+                    <input type="radio" {...register("commandModelSchema.model")} />
                 </label>
             </div>
             <div>
@@ -43,14 +40,10 @@ export default function CommandModelSection() {
                         alt="Option 3"
                         className="w-full h-auto rounded-md mb-4"
                     />
-                    <input
-                        type="radio"
-                        name="option"
-                        value="option3"
-                        className="form-radio text-blue-500"
-                    />
+                    <input type="radio" {...register("commandModelSchema.model")} />
                 </label>
             </div>
         </div>
     </section>
 }
+export default CommandModelSection

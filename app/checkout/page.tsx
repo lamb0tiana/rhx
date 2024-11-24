@@ -32,7 +32,7 @@ export default function Checkout() {
                 }}>
                     <BuyerSection errors={errors.fromSchema || {}}/>
                     <Receiver errors={errors.toSchema || {}}/>
-                    <CommandModelSection/>
+                    <CommandModelSection errors={errors.commandModelSchema || {}}/>
                     <CgvSection/>
                     <input type="submit" value="Valider et payer"
                            className="bg-primary text-white text-sm m-auto flex font-bold py-2 px-4 rounded-md"/>
