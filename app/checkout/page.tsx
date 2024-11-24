@@ -31,15 +31,15 @@ export default function Checkout() {
         router.push('/resume')
     }
 
-    // useEffect(() => {
-    //     if(!selectedProduct) {
-    //         router.push('/')
-    //     }
-    // }, []);
+    useEffect(() => {
+        if(!selectedProduct) {
+            router.push('/')
+        }
+    }, []);
+
     return (
-        <div className="max-w-[1200px] mx-auto p-6 ">
             <FormProvider {...methods}>
-                <form className="space-y-8" onSubmit={(e) => {
+                <form className="space-y-8 mx-auto px-6" onSubmit={(e) => {
                     e.preventDefault()
                     handleSubmit(onsubmit)(e)
                 }}>
@@ -51,7 +51,6 @@ export default function Checkout() {
                            className="bg-primary text-white text-sm m-auto flex font-bold py-2 px-4 rounded-md"/>
                 </form>
             </FormProvider>
-        </div>
 
     );
 }
