@@ -1,6 +1,6 @@
 import {z} from "zod";
 
-export const fromSchema = z.object({
+export const giverSchema = z.object({
     email: z.string().email("Adresse e-mail invalide"),
     address: z.string().optional().refine((val) => !val || val.length >= 5, {
         message: "Votre adresse doit contenir au moins 5 caractères",
@@ -14,13 +14,13 @@ export const fromSchema = z.object({
 });
 
 
-export const toSchema = z.object({
+export const receiverSchema = z.object({
     receiver: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
     from: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
 });
 
-export const commandModelSchema = z.object({
-    model: z.string({
+export const modelTypeSchema = z.object({
+    value: z.string({
         message: "Choisir un modèle"
     }),
 })
@@ -38,8 +38,13 @@ export const cgSchema = z.object({
         }),
 });
 export const formSchema = z.object({
-    fromSchema, toSchema, commandModelSchema, cgSchema
+      giver: giverSchema,  receiver: receiverSchema, model: modelTypeSchema, cg: cgSchema
 });
 
+export type VoucherType ={
+    giver: z.infer<typeof giverSchema>
+    receiver: z.infer<typeof receiverSchema>
+    model: z.infer<typeof modelTypeSchema>
+}
 
 export type CheckoutFormType = z.infer<typeof formSchema>;

@@ -1,6 +1,6 @@
 "use client"
 import BuyerSection from "@/app/checkout/BuyerSection";
-import CommandModelSection from "@/app/checkout/CommandModelSection";
+import ModelSection from "@/app/checkout/ModelSection";
 import Receiver from "@/app/checkout/Receiver";
 import CgvSection from "@/app/checkout/CgvSection";
 import {useForm, FormProvider} from "react-hook-form";
@@ -11,7 +11,7 @@ import {useRouter} from "next/navigation";
 import {useCard} from "@/app/_/context/CartContext";
 
 export default function Checkout() {
-    const {selectedProduct} = useCard()
+    const {selectedProduct, dispatch} = useCard()
     const router = useRouter()
     const methods = useForm<CheckoutFormType>({
         resolver: zodResolver(formSchema),
@@ -24,7 +24,6 @@ export default function Checkout() {
 
     const onsubmit = (data: CheckoutFormType) => {
         console.log(data)
-
     }
 
     useEffect(() => {
@@ -39,10 +38,10 @@ export default function Checkout() {
                     e.preventDefault()
                     handleSubmit(onsubmit)(e)
                 }}>
-                    <BuyerSection errors={errors.fromSchema || {}}/>
-                    <Receiver errors={errors.toSchema || {}}/>
-                    <CommandModelSection errors={errors.commandModelSchema || {}}/>
-                    <CgvSection errors={errors.cgSchema || {}}/>
+                    <BuyerSection errors={errors.giver || {}}/>
+                    <Receiver errors={errors.receiver || {}}/>
+                    <ModelSection errors={errors.model || {}}/>
+                    <CgvSection errors={errors.cg || {}}/>
                     <input type="submit" value="Valider et payer"
                            className="bg-primary text-white text-sm m-auto flex font-bold py-2 px-4 rounded-md"/>
                 </form>
