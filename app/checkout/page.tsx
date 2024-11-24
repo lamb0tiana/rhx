@@ -1,18 +1,44 @@
+"use client"
 import BuyerSection from "@/app/checkout/BuyerSection";
 import CommandModelSection from "@/app/checkout/CommandModelSection";
 import GiftSection from "@/app/checkout/GiftSection";
 import CgvSection from "@/app/checkout/CgvSection";
+import {useForm, FormProvider} from "react-hook-form";
+import {CheckoutFormType, formSchema} from "@/app/_/schemas/checkoutSchemas";
+import {zodResolver} from "@hookform/resolvers/zod";
+import React, {useEffect} from "react";
 
 export default function Checkout() {
+    const methods = useForm<CheckoutFormType>({
+        resolver: zodResolver(formSchema),
+        mode: "onChange"
+    })
+    const {
+        handleSubmit,
+        formState: {errors},
+    } = methods;
+    const onsubmit = (data: CheckoutFormType) => {
+        console.log(data)
+
+    }
+    useEffect(() => {
+        console.log(errors)
+    }, [errors]);
     return (
         <div className="max-w-[1200px] mx-auto p-6 ">
-            <form className="space-y-8">
-                <BuyerSection/>
-                <GiftSection/>
-                <CommandModelSection/>
-                <CgvSection/>
-                <input type="submit" value="Valider et payer" className="bg-primary text-white text-sm m-auto flex font-bold py-2 px-4 rounded-md"/>
-            </form>
+            <FormProvider {...methods}>
+                <form className="space-y-8" onSubmit={(e) => {
+                    e.preventDefault()
+                    handleSubmit(onsubmit)(e)
+                }}>
+                    <BuyerSection errors={errors.fromSchema || {}}/>
+                    <GiftSection/>
+                    <CommandModelSection/>
+                    <CgvSection/>
+                    <input type="submit" value="Valider et payer"
+                           className="bg-primary text-white text-sm m-auto flex font-bold py-2 px-4 rounded-md"/>
+                </form>
+            </FormProvider>
         </div>
 
     );
