@@ -8,12 +8,13 @@ export default function Search() {
                     className="flex-1 p-2 focus:outline-none min-w-72 text-center font-semibold text-[#523918]"
                 />
                 <button
+                    type="button"
                     className="bg-primary text-white px-4 font-semibold focus:outline-none hover:bg-primary-dark rounded-3xl min-w-24 hidden md:block"
                 >
                     Voir
                 </button>
             </div>
-            <button
+            <button type="button"
                 className="bg-primary text-white p-1 font-semibold focus:outline-none hover:bg-primary-dark rounded-3xl min-w-24 block md:hidden w-1/3 mx-auto"
             >
                 Voir

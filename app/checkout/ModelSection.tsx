@@ -37,6 +37,7 @@ const ModelSection: React.FC<ModelSectionProps> = ({errors}) => {
                                 <Image
                                     src={`/images/models/${model}.png`}
                                     alt={`model ${model}`}
+                                    layout="responsive"
                                     width={350}
                                     height={150}
                                     objectFit="cover"
@@ -44,7 +45,7 @@ const ModelSection: React.FC<ModelSectionProps> = ({errors}) => {
                             </div>
                             <input
                                 type="radio"
-                                value={`model${model}`}
+                                value={model}
                                 {...register("model.value")}
                                 className="mt-4"
                             />
