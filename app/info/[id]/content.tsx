@@ -24,7 +24,6 @@ export default function Content({id}: { id: number }) {
     useEffect(() => {
         if (product) {
             setPrice(product.price)
-            dispatch({selectedProduct: product})
         }
     }, [product]);
 
