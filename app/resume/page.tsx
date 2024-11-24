@@ -1,13 +1,17 @@
 "use client"
 import Image from "next/image";
 import {useCard} from "@/app/_/context/CartContext";
+import {useEffect} from "react";
 
 export default function Resume() {
-    const {voucher} =useCard()
+    const {voucher} = useCard()
 
-    if(!voucher?.model.value){
+    if (!voucher?.model.value) {
         window.location.href = "/"
     }
+    useEffect(() => {
+        document.title = "Télecharger votre bon"
+    }, []);
     return (
         <div className="max-w-[1200px] mx-auto">
             <section className="flex flex-col items-center justify-center text-center">
@@ -15,7 +19,7 @@ export default function Resume() {
                 <p className="font-bold mt-12">
                     <span className="text-primary text-xl">Bon de cadeau n° </span>
                     <span className="text-orange-900 text-2xl">
-                        {voucher?.model.value }
+                        {voucher?.model.value}
                     </span>
                 </p>
 
