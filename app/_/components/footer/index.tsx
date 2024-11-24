@@ -1,7 +1,7 @@
-import LeftSide from "@/app/components/header/leftSide";
+import LeftSide from "@/app/_/components/header/leftSide";
 
 import SocialNetworks from "./socialNetworks";
-import SecurePayment from "@/app/components/footer/securedPayment";
+import SecurePayment from "@/app/_/components/footer/securedPayment";
 
 export default function Footer() {
     return <footer className="my-8 py-8 w-full mx-auto ">

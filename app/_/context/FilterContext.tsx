@@ -1,6 +1,6 @@
 "use client"
 import {createContext, Dispatch, useContext, useEffect, useReducer} from 'react'
-import {CategoryFilterType, products, ProductType} from "@/app/data/products";
+import {CategoryFilterType, products, ProductType} from "@/app/_/data/products";
 
 type ContextData = {
     filter: CategoryFilterType | undefined

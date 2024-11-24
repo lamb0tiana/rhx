@@ -1,10 +1,10 @@
 "use client"
-import {useProduct} from "@/app/context/FilterContext";
+import {useProduct} from "@/app/_/context/FilterContext";
 import Image from "next/image";
 import React, {useEffect, useState} from "react";
 import present2 from "@/public/icons/present2.svg";
-import {ProductType} from "@/app/data/products";
-import {useCard} from "@/app/context/CartContext";
+import {ProductType} from "@/app/_/data/products";
+import {useCard} from "@/app/_/context/CartContext";
 import {useRouter} from "next/navigation";
 
 export default function Content({id}: { id: number }) {

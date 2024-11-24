@@ -1,7 +1,7 @@
 "use client"
 import style from "./home.module.scss"
-import {CategoryFilter, ProductType} from "@/app/data/products";
-import {useProduct} from "@/app/context/FilterContext";
+import {CategoryFilter, ProductType} from "@/app/_/data/products";
+import {useProduct} from "@/app/_/context/FilterContext";
 import Image from "next/image";
 import present from "@/public/icons/present2.svg";
 import {useState, useEffect} from "react";

@@ -1,12 +1,12 @@
 import type {Metadata} from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/app/components/header";
-import Siteplan from "@/app/components/siteplan";
-import SitePlanContextComponent from "@/app/context/SitePlanContext";
-import ProductContextComponent from "@/app/context/FilterContext";
-import Footer from "@/app/components/footer";
-import CardContextComponent from "@/app/context/CartContext";
+import Header from "@/app/_/components/header";
+import Siteplan from "@/app/_/components/siteplan";
+import SitePlanContextComponent from "@/app/_/context/SitePlanContext";
+import ProductContextComponent from "@/app/_/context/FilterContext";
+import Footer from "@/app/_/components/footer";
+import CardContextComponent from "@/app/_/context/CartContext";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",

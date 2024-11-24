@@ -1,6 +1,6 @@
 "use client"
 import React, {createContext, Dispatch, useContext, useReducer} from 'react'
-import {ProductType} from "@/app/data/products";
+import {ProductType} from "@/app/_/data/products";
 
 type ContextData = {
     selectedProduct: ProductType | null

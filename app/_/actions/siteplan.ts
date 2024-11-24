@@ -1,4 +1,4 @@
-import { plan_site_type } from "@/app/data/site_plan";
+import { plan_site_type } from "@/app/_/data/site_plan";
 
 export default async function SitePlanQuery(): Promise<plan_site_type> {
     const response = await fetch("/api/siteplan");

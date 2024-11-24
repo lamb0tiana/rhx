@@ -1,9 +1,9 @@
 "use client"
 import {createContext, Dispatch, useContext, useEffect, useReducer} from 'react'
-import {plan_site_item_type} from "@/app/data/site_plan";
+import {plan_site_item_type} from "@/app/_/data/site_plan";
 import {usePathname} from "next/navigation";
-import SitePlanQuery from "@/app/actions/siteplan";
-import {useProduct} from "@/app/context/FilterContext";
+import SitePlanQuery from "@/app/_/actions/siteplan";
+import {useProduct} from "@/app/_/context/FilterContext";
 
 type ContextData = {
     sitePlan: plan_site_item_type[]

@@ -1,5 +1,5 @@
-import LeftSide from "@/app/components/header/leftSide";
-import Search from "@/app/components/header/search";
+import LeftSide from "@/app/_/components/header/leftSide";
+import Search from "@/app/_/components/header/search";
 
 export default function Index() {
     return <header className="mt-5 w-full">
