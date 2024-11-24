@@ -1,49 +1,59 @@
-import checkoutStyle from "./checkout.module.scss"
+import checkoutStyle from "./checkout.module.scss";
 import {FieldErrors, useFormContext} from "react-hook-form";
 import {CheckoutFormType} from "@/app/_/schemas/checkoutSchemas";
 import React from "react";
+import Image from "next/image";
+
 type ModelSectionProps = {
-    errors: FieldErrors<CheckoutFormType['model']>
-}
+    errors: FieldErrors<CheckoutFormType['model']>;
+};
+
 const ModelSection: React.FC<ModelSectionProps> = ({errors}) => {
-const { register } = useFormContext<CheckoutFormType>();
-    return <section className={checkoutStyle.row}>
-        <div className="flex items-center space-x-3 mb-6">
-            <div>3</div>
-            <h2>Choisir un modèle</h2>{errors.value && <p className={checkoutStyle.hasError}>{errors.value.message}</p>}
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-            <div>
-                <label className={`flex flex-col items-center ${checkoutStyle.radios}`}>
-                    <img
-                        src="https://via.placeholder.com/150"
-                        alt="Option 1"
-                        className="w-full h-auto rounded-md mb-4"
-                    />
-                    <input type="radio" value="model1" {...register("model.value")} />
-                </label>
+    const {register, watch} = useFormContext<CheckoutFormType>();
+
+    const selectedModel = watch("model.value");
+
+    return (
+        <section className={checkoutStyle.row}>
+            <div className="flex items-center space-x-3 mb-6">
+                <div>3</div>
+                <h2>Choisir un modèle</h2>
+                {errors.value && (
+                    <p className={checkoutStyle.hasError}>{errors.value.message}</p>
+                )}
             </div>
-            <div>
-                <label className={`flex flex-col items-center ${checkoutStyle.radios}`}>
-                    <img
-                        src="https://via.placeholder.com/150"
-                        alt="Option 2"
-                        className="w-full h-auto rounded-md mb-4"
-                    />
-                    <input type="radio" value="model2" {...register("model.value")} />
-                </label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
+                {[1, 2, 3].map((model, index) => (
+                    <div
+                        key={index}
+                        className={`flex flex-col items-center justify-between w-full h-full `}
+                    >
+                        <label className={`flex flex-col items-center ${checkoutStyle.radios}`}>
+                            <div
+                                className={`w-full h-[300px] flex items-center justify-center mb-4 border py-8 rounded-xl ${
+                                    selectedModel === `model${model}` ? checkoutStyle.active : ""
+                                }`}
+                            >
+                                <Image
+                                    src={`/images/models/${model}.png`}
+                                    alt={`model ${model}`}
+                                    width={350}
+                                    height={150}
+                                    objectFit="cover"
+                                />
+                            </div>
+                            <input
+                                type="radio"
+                                value={`model${model}`}
+                                {...register("model.value")}
+                                className="mt-4"
+                            />
+                        </label>
+                    </div>
+                ))}
             </div>
-            <div>
-                <label className={`flex flex-col items-center ${checkoutStyle.radios}`}>
-                    <img
-                        src="https://via.placeholder.com/150"
-                        alt="Option 3"
-                        className="w-full h-auto rounded-md mb-4"
-                    />
-                    <input type="radio" value="model3" {...register("model.value")} />
-                </label>
-            </div>
-        </div>
-    </section>
-}
-export default ModelSection
+        </section>
+    );
+};
+
+export default ModelSection;

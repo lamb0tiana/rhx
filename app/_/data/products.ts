@@ -33,7 +33,7 @@ export const products: ProductType[] = Array.from({length: 6}, (_, i) => ({
     description: faker.lorem.lines({
         min:3, max: 10
     }),
-    imgUrl: `/images/${i + 1}.png`,
+    imgUrl: `/images/gifts/${i + 1}.png`,
     person: faker.number.int({
         min: 1,
         max: 4

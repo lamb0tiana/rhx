@@ -31,11 +31,11 @@ export default function Checkout() {
         router.push('/resume')
     }
 
-    useEffect(() => {
-        if(!selectedProduct) {
-            router.push('/')
-        }
-    }, []);
+    // useEffect(() => {
+    //     if(!selectedProduct) {
+    //         router.push('/')
+    //     }
+    // }, []);
     return (
         <div className="max-w-[1200px] mx-auto p-6 ">
             <FormProvider {...methods}>

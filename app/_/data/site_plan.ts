@@ -26,7 +26,7 @@ const site_plan: plan_site_type = {
         "is_active": false
     },
     "print": {
-        "url": "/print",
+        "url": "/resume",
         "icon": "print",
         "label": "Imprimer votre bon",
         "is_active": false

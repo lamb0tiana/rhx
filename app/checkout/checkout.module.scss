@@ -2,7 +2,7 @@
   @apply p-12 rounded-2xl border border-gray-200;
   input:not([type="radio"]) {
     @apply mt-1 block w-full border border-gray-300 rounded-md h-8 focus:outline-none text-center focus:border-primary;
-    &::placeholder{
+    &::placeholder {
       @apply text-amber-950/20 italic text-sm;
     }
   }
@@ -11,6 +11,14 @@
     @apply block text-sm font-medium text-gray-700 font-bold text-orange-900;
     &:not(.radios)::after {
       content: " :";
+    }
+
+    &.radios div {
+      background: url("/images/models/layer.png") no-repeat;
+      @apply bg-cover bg-center;
+      &.active {
+        @apply border border-primary;
+      }
     }
   }
 
@@ -37,6 +45,7 @@
     }
   }
 }
-.hasError{
+
+.hasError {
   @apply text-red-500 text-xs italic
 }
