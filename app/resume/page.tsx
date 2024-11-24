@@ -6,10 +6,11 @@ import {useEffect} from "react";
 export default function Resume() {
     const {voucher} = useCard()
 
-    if (!voucher?.model.value) {
-        window.location.href = "/"
-    }
+
     useEffect(() => {
+        if (!voucher?.model.value) {
+            window.location.href = "/"
+        }
         document.title = "Télecharger votre bon"
     }, []);
     return (

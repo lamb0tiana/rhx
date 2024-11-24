@@ -23,9 +23,12 @@ export default function Checkout() {
 
 
     const onsubmit = (data: CheckoutFormType) => {
-        const {cg, ...voucher} = data
         dispatch({
-            voucher
+            voucher:{
+                model: data.model,
+                receiver: data.receiver,
+                giver: data.giver
+            }
         })
 
         router.push('/resume')
