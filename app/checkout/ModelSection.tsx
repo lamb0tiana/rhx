@@ -31,7 +31,7 @@ const ModelSection: React.FC<ModelSectionProps> = ({errors}) => {
                         <label className={`flex flex-col items-center ${checkoutStyle.radios}`}>
                             <div
                                 className={`w-full h-[300px] flex items-center justify-center mb-4 border py-8 rounded-xl ${
-                                    selectedModel === `model${model}` ? checkoutStyle.active : ""
+                                    +selectedModel === model ? checkoutStyle.active : ""
                                 }`}
                             >
                                 <Image
