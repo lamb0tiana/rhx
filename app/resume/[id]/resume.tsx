@@ -3,7 +3,7 @@ import Image from "next/image";
 import {useCard} from "@/app/_/context/CartContext";
 import React, {useEffect} from "react";
 
-const  Resume: React.FC<{id: number}> = ({id}) => {
+const  Resume: React.FC<{id: number|string}> = ({id}) => {
     const {voucher} = useCard();
 
     useEffect(() => {
