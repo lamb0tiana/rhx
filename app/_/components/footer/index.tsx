@@ -20,7 +20,7 @@ export default function Footer() {
         </div>
 
         <div className="container mx-auto mt-8 max-w-[1024px]">
-            <div className="grid grid-cols-1 lg:grid-cols-2  gap-6 text-xs">
+            <div className="grid grid-cols-1 lg:grid-cols-2  text-gray-700 gap-6 text-xs">
                 <div className="text-center ">
                     <p>Site développé par <a
                         href="mailto:tiana.randrianarivony@gmail.com">tiana.randrianarivony@gmail.com</a></p>
