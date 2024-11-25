@@ -37,7 +37,7 @@ export default function Home() {
                     {CategoryFilter.map(category =>
                         <button
                             onClick={() => dispatch({filter: category == "Tous" ? undefined : category})}
-                            className={filter === category || (category === "Tous" && filter === undefined) ? style.active : ''}
+                            className={filter === category || (category === "Tous" && filter === undefined) ? style.active : 'text-primary'}
                             key={category}>
                             {category}
                         </button>

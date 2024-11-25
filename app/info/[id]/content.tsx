@@ -57,10 +57,10 @@ export default function Content({id}: { id: number }) {
             <div className="w-full md:w-1/2 flex flex-col justify-between px-4 sm:px-6 lg:px-8 py-4">
                 <div>
                     <p className="text-xl text-primary font-semibold mb-4 text-center md:text-left">Chèque cadeau</p>
-                    <p className="py-1 bg-[#FCF5E7] w-1/3 text-sm rounded-md text-center">
+                    <p className="py-1 bg-[#FCF5E7] text-amber-900 w-1/3 text-sm rounded-md text-center">
                         Pour {product.person} personne{product.person > 1 ? "s" : ""}
                     </p>
-                    <p className="text-sm text-justify py-2 my-3">{product.shortDescription}</p>
+                    <p className="text-sm text-justify py-2 my-3 text-gray-700">{product.shortDescription}</p>
                 </div>
                 <div className="flex flex-col space-y-4">
                     <label className="flex items-center space-x-2">
@@ -96,7 +96,7 @@ export default function Content({id}: { id: number }) {
                             </button>
                             <input
                                 type="number"
-                                className="w-16 text-center border border-gray-300 rounded-md"
+                                className="w-16 text-center text-primary border border-gray-300 rounded-md"
                                 value={count}
                                 readOnly={true}
                             />
@@ -104,7 +104,7 @@ export default function Content({id}: { id: number }) {
                         </div>
                         <div className="text-right flex flex-col justify-center">
                             <span className="text-md text-primary font-semibold">Total: {total.toFixed(2)}€</span>
-                            <p className="mt-2 p-2 bg-[#FCF5E7]  text-sm rounded-md text-center">
+                            <p className="mt-2 p-2 bg-[#FCF5E7] text-amber-900 text-sm rounded-md text-center">
                                 Pour {product.person} personne{product.person > 1 ? "s" : ""}
                             </p>
                         </div>
@@ -118,7 +118,7 @@ export default function Content({id}: { id: number }) {
         </div>
         <div>
             <p className="text-md text-primary font-semibold mb-4 mt-5">Description</p>
-            <p className="text-sm text-justify py-2 my-1">{product.description}</p>
+            <p className="text-sm text-justify py-2 my-1 text-gray-500">{product.description}</p>
         </div>
     </>
 
