@@ -12,7 +12,7 @@ const  Resume: React.FC<{id: number|string}> = ({id}) => {
 
     return (
         <div className="max-w-[1200px] mx-auto">
-            {id === voucher?.id ? (
+            {id.toString() === voucher?.id?.toString() ? (
                 <section className="flex flex-col items-center justify-center text-center">
                     <p className="font-bold mt-12">
                         <span className="text-primary text-xl">Bon de cadeau n° </span>
