@@ -22,13 +22,13 @@ const ModelSection: React.FC<ModelSectionProps> = ({errors}) => {
                     <p className={checkoutStyle.hasError}>{errors.value.message}</p>
                 )}
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                 {[1, 2, 3].map((model, index) => (
                     <div
                         key={index}
                         className={`flex flex-col items-center justify-between w-full h-full `}
                     >
-                        <label className={`flex flex-col items-center ${checkoutStyle.radios}`}>
+                        <label className={`flex flex-col w-full items-center ${checkoutStyle.radios}`}>
                             <div
                                 className={`w-full h-[300px] flex items-center justify-center mb-4 border py-8 rounded-xl ${
                                     +selectedModel === model ? checkoutStyle.active : ""

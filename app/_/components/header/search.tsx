@@ -7,10 +7,12 @@ export default function Search() {
     const inputRef = useRef<HTMLInputElement>(null)
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        if(inputRef.current){
+        if (inputRef.current) {
             const {value} = inputRef.current
-            router.push(`/resume/${value}`, )
-
+            if (value) {
+                inputRef.current.value = ""
+                router.push(`/resume/${value}`)
+            }
         }
     }
     return <div className="w-full md:w-auto">
@@ -30,7 +32,7 @@ export default function Search() {
                 </button>
             </div>
             <button type="submit"
-                className="bg-primary text-white p-1 font-semibold focus:outline-none hover:bg-primary-dark rounded-3xl min-w-24 block md:hidden w-1/3 mx-auto"
+                    className="bg-primary text-white p-1 font-semibold focus:outline-none hover:bg-primary-dark rounded-3xl min-w-24 block md:hidden w-1/3 mx-auto"
             >
                 Voir
             </button>
