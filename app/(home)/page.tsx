@@ -49,13 +49,14 @@ export default function Home() {
                         <div key={j}
                              className="bg-white shadow-md rounded-xl overflow-hidden flex flex-col min-h-[400px] pb-6">
                             <div className="h-48 bg-gray-200">
-                                <Image
-                                    src={product.imgUrl}
-                                    alt={'d'}
-                                    width={320}
-                                    height={320}
-                                    className="w-full h-full object-cover"
-                                />
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src={product.imgUrl}
+                                        alt="image"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
                             </div>
                             <div className="px-4 flex flex-col flex-grow my-5">
                                 <h3 className="text-xl text-primary m-auto font-bold mb-2">Chèque cadeau</h3>

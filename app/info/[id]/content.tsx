@@ -46,7 +46,6 @@ export default function Content({id}: { id: number }) {
         <div className="flex flex-col items-stretch gap-4 md:flex-row md:gap-8 border-b border-primary pb-8 ">
             <div className="w-full md:w-1/2 flex justify-center items-center bg-gray-50">
                 <Image
-                    layout="responsive"
                     src={product.imgUrl}
                     alt="Image du produit"
                     width={500}
@@ -83,6 +82,7 @@ export default function Content({id}: { id: number }) {
                     <Image
                         src={present2}
                         alt={'present 2'}
+
                         width={20}
                         height={20}
                     />
@@ -111,7 +111,7 @@ export default function Content({id}: { id: number }) {
                     </div>
                 </div>
                 <button onClick={validateCommand}
-                    className="w-full sm:w-fit mt-6 bg-primary font-bold text-white py-2 px-6 rounded-md hover:bg-blue-600">
+                    className="w-full sm:w-fit mt-6 bg-primary font-bold text-white py-2 px-6 rounded-md hover:bg-amber-800">
                     Commander
                 </button>
             </div>

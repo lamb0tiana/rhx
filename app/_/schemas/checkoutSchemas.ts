@@ -42,6 +42,7 @@ export const formSchema = z.object({
 });
 
 export type VoucherType ={
+    id: number|undefined,
     giver: z.infer<typeof giverSchema>
     receiver: z.infer<typeof receiverSchema>
     model: z.infer<typeof modelTypeSchema>

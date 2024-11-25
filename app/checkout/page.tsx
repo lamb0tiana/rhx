@@ -9,6 +9,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import React, {useEffect} from "react";
 import {useRouter} from "next/navigation";
 import {useCard} from "@/app/_/context/CartContext";
+import {faker} from "@faker-js/faker/locale/fr";
 
 export default function Checkout() {
     const {selectedProduct, dispatch} = useCard()
@@ -23,15 +24,17 @@ export default function Checkout() {
 
 
     const onsubmit = (data: CheckoutFormType) => {
+        const id = faker.number.int({min: 10000, max: 99999})
         dispatch({
             voucher:{
+                id,
                 model: data.model,
                 receiver: data.receiver,
                 giver: data.giver
             }
         })
 
-        router.push('/resume')
+        router.push(`/resume/${id}`)
     }
 
     useEffect(() => {
